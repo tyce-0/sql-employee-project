@@ -119,14 +119,14 @@ ON E.NUM_E=EP.NUM_E
 GROUP BY E.NAME,E.NUM_E
 HAVING COUNT (EP.NUM_P) > 1
 
---Write a query to retrieve the list of projects managed by each department, including the department label and manager’s name.
+-- a query to retrieve the list of projects managed by each department, including the department label and manager’s name.
 SELECT P.Title,D.Label, D.Manager_Name
 from JK.Project P
 JOIN JK.Department D
 ON P.Department_NUM_S =D.NUM_S
 GROUP BY P.Title,D.Label,D.Manager_Name
 
---Write a query to retrieve the names of employees working on the project "Website Redesign," including their roles in the project.
+-- a query to retrieve the names of employees working on the project "Website Redesign," including their roles in the project.
 
 SELECT E.NAME,EP.Role                        
 FROM JK.Employee E                          
@@ -146,7 +146,7 @@ where p.Title = 'Web Redesign'
 
  
 
---Write a query to retrieve the department with the highest number of employees, including the department label, manager name, and the total number of employees.
+-- a query to retrieve the department with the highest number of employees, including the department label, manager name, and the total number of employees.
 
 
 select D.Label,D.Manager_Name,COUNT(E.NUM_E) AS Total_number_of_employees
@@ -159,7 +159,7 @@ ORDER BY COUNT(E.NUM_E) DESC;
 
 
 
---Write a query to retrieve the names and positions of employees earning a salary greater than 60,000, including their department names.
+-- a query to retrieve the names and positions of employees earning a salary greater than 60,000, including their department names.
 SELECT e.NAME,e.POSITION,d.Label
 from JK.Employee e
 JOIN JK.Department d
@@ -168,7 +168,7 @@ where e.SALARY > 60000.00
 group by e.NAME,e.POSITION,d.Label
   
 
-     --Write a query to retrieve the number of employees assigned to each project, including the project title.
+     -- a query to retrieve the number of employees assigned to each project, including the project title.
      select p.Title, count(e.NUM_E) AS number_of_employees
      from jk.Project p
      join   jk.Employee_Project ep
@@ -183,7 +183,7 @@ group by e.NAME,e.POSITION,d.Label
 
    
 
---Write a query to retrieve a summary of roles employees have across different projects, including the employee name, project title, and role.
+-- a query to retrieve a summary of roles employees have across different projects, including the employee name, project title, and role.
 select e.NAME,ep.Role,p.Title
 from jk.Employee e
 join jk.Employee_Project ep
@@ -192,7 +192,7 @@ join jk.Project p
 on ep.NUM_P=p.NUM_P
 group by e.NAME,p.Title,ep.Role;
 
---Write a query to retrieve the total salary expenditure for each department, including the department label and manager name.
+-- a query to retrieve the total salary expenditure for each department, including the department label and manager name.
 
 select d.Label, d.Manager_Name,sum(e.salary) as Total_Salary_Expenditure
 from JK.Department d
